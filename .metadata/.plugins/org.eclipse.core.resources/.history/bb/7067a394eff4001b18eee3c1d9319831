@@ -1,0 +1,55 @@
+package com.arnavsaraf.ipldashboard.data;
+
+import java.time.LocalDate;
+
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+import org.springframework.batch.item.ItemProcessor;
+import com.arnavsaraf.ipldashboard.model.Match;
+
+/**
+ * Item Processor gets an input and produces an output
+ * */
+public class MatchDataProcessor implements ItemProcessor<MatchInput, Match> {
+
+	  private static final Logger log = LoggerFactory.getLogger(MatchDataProcessor.class);
+
+	  @Override
+	  public Match process(final MatchInput matchInputData) throws Exception {
+		  
+		Match match = new Match();
+		match.setId(Long.parseLong(matchInputData.getId()));
+		match.setTeam1(matchInputData.getTeam1());
+		String team2 = matchInputData.getTeam2();
+		String venue = matchInputData.getVenue();
+		String city = matchInputData.getCity();
+		String playerOfTheMatch = matchInputData.getPlayer_of_match();
+		String matchWinner = matchInputData.getWinner();
+		String tossWinner = matchInputData.getToss_winner();
+		String tossDecision = matchInputData.getToss_decision();
+		String result = matchInputData.getResult();
+		String margin = matchInputData.getResult_margin();
+		String umpire1 = matchInputData.getUmpire1();
+		String umpire2 = matchInputData.getUmpire2();
+		LocalDate matchDate = matchInputData.getDate();
+		
+		
+		
+		
+		
+		
+		log.info("Converting (" + matchInputData + ") into (" + transformedPerson + ")");
+		return match;
+		
+		
+	    final String firstName = matchInputData.getFirstName().toUpperCase();
+	    final String lastName = matchInputData.getLastName().toUpperCase();
+
+	    final MatchInput transformedPerson = new MatchInput(firstName, lastName);
+
+	    log.info("Converting (" + matchInputData + ") into (" + transformedPerson + ")");
+
+	    return transformedPerson;
+	  }
+
+	}

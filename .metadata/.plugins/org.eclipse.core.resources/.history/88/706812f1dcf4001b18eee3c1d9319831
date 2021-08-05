@@ -1,0 +1,20 @@
+/**
+ * 
+ */
+package com.arnavsaraf.ipldashboard.Controller;
+
+/**
+ * @author print02
+ *
+ */
+public class IPLDashboardController {
+
+	/**
+	 * Basic Constructor
+	 */
+	public IPLDashboardController() {
+		super();
+		
+	}
+
+}

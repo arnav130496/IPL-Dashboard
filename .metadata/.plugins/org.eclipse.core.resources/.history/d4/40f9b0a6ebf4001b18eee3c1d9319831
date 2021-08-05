@@ -1,0 +1,5 @@
+package com.arnavsaraf.ipldashboard.data;
+
+public class MatchInput {
+
+}

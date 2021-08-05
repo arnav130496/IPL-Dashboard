@@ -1,0 +1,19 @@
+/**
+ * 
+ */
+package com.arnavsaraf.ipldashboard.Controller;
+
+/**
+ * @author print02
+ *
+ */
+public class IPLDashboardController {
+
+	/**
+	 * 
+	 */
+	public IPLDashboardController() {
+		// TODO Auto-generated constructor stub
+	}
+
+}
