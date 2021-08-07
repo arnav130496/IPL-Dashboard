@@ -1,13 +1,12 @@
 package com.arnavsaraf.ipldashboard.controller;
 
-import org.springframework.web.bind.annotation.CrossOrigin;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestHeader;
-import org.springframework.web.bind.annotation.RestController;
+import com.arnavsaraf.ipldashboard.model.Match;
+import org.springframework.web.bind.annotation.*;
 
 import com.arnavsaraf.ipldashboard.model.Team;
 import com.arnavsaraf.ipldashboard.service.TeamService;
+
+import java.util.List;
 
 @RestController
 @CrossOrigin
@@ -26,12 +25,11 @@ public class TeamController {
 		return teamService.getTeamData(teamName,matchesCount);
 	}
 
-	@GetMapping("/team/{teamName}/matches/{year}")
-	public Team getTeamData(@PathVariable("teamName") String teamName,
-							@RequestHeader(value="matchesCount", required = true) int matchesCount,
-							@PathVariable("year") int year) throws Exception{
+	@GetMapping("/team/{teamName}/matches")
+	public List<Match> getTeamDataByYear(@PathVariable("teamName") String teamName,
+								   @RequestParam(value="year", required = true) int year) throws Exception{
 
-		return teamService.getTeamDataByYear(teamName,matchesCount,year);
+		return teamService.getTeamDataByYear(teamName,year);
 	}
 	
 

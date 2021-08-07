@@ -1,5 +1,6 @@
 package com.arnavsaraf.ipldashboard.service.impl;
 
+import java.time.LocalDate;
 import java.util.List;
 
 import org.springframework.data.domain.PageRequest;
@@ -41,8 +42,11 @@ public class TeamServiceImpl implements TeamService {
 	}
 
 	@Override
-	public Team getTeamDataByYear(String teamName, int matchesCount, int year) {
-		return null;
+	public List<Match> getTeamDataByYear(String teamName, int year) {
+		LocalDate startDate = LocalDate.of(year,1,1);
+		LocalDate endDate = LocalDate.of(year+1,1,1);
+		List<Match> matchesOfTeam = matchRepo.findTeamMatchesByYear(teamName,startDate,endDate);
+		return matchesOfTeam;
 	}
 
 }

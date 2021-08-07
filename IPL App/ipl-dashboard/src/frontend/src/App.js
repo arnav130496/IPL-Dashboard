@@ -13,7 +13,7 @@ function App() {
         </Route>
         <Route path="/teams/:teamName">
           <TeamPage />
-        </Route>
+        </Route>  
         </Switch>
       </Router>
     </div>

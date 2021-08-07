@@ -1,6 +1,9 @@
 package com.arnavsaraf.ipldashboard.service;
 
+import com.arnavsaraf.ipldashboard.model.Match;
 import com.arnavsaraf.ipldashboard.model.Team;
+
+import java.util.List;
 
 public interface TeamService {
 
@@ -16,9 +19,8 @@ public interface TeamService {
 	/**
 	 *
 	 * @param teamName
-	 * @param matchesCount
 	 * @param year
 	 * @return
 	 */
-    Team getTeamDataByYear(String teamName, int matchesCount, int year);
+    List<Match> getTeamDataByYear(String teamName, int year);
 }
