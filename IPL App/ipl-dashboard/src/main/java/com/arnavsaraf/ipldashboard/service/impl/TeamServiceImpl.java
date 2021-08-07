@@ -40,4 +40,9 @@ public class TeamServiceImpl implements TeamService {
 		return team;
 	}
 
+	@Override
+	public Team getTeamDataByYear(String teamName, int matchesCount, int year) {
+		return null;
+	}
+
 }
