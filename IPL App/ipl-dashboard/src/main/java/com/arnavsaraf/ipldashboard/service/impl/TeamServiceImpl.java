@@ -49,4 +49,10 @@ public class TeamServiceImpl implements TeamService {
 		return matchesOfTeam;
 	}
 
+	@Override
+	public List<Team> getAllTeams() {
+		List<Team> teams = teamRepo.findAll();
+		return teams;
+	}
+
 }

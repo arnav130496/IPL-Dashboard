@@ -31,6 +31,14 @@ public class TeamController {
 
 		return teamService.getTeamDataByYear(teamName,year);
 	}
+
+	@GetMapping("/team")
+	public List<Team> getTeamDataByYear() throws Exception{
+
+		return teamService.getAllTeams();
+	}
+
+
 	
 
 }

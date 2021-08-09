@@ -23,4 +23,10 @@ public interface TeamService {
 	 * @return
 	 */
     List<Match> getTeamDataByYear(String teamName, int year);
+
+	/**
+	 *
+	 * @return
+	 */
+	List<Team> getAllTeams();
 }

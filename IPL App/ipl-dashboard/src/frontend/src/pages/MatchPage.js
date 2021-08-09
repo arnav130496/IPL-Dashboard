@@ -1,6 +1,8 @@
 import {React, useEffect, useState} from 'react'
 import { useParams } from 'react-router-dom'
 import { MatchDetailCard } from '../components/MatchDetailCard';
+import { YearSelector } from '../components/YearSelector';
+import './MatchPage.scss'
 
 export const MatchPage = () => {
 
@@ -9,7 +11,8 @@ export const MatchPage = () => {
     useEffect(
         () => {
           const fetchMatches = async() => {
-            const response = await fetch(`http://localhost:5099/team/${teamName}/matches?year=${year}`, {
+            const backendIp = process.env.REACT_APP_BACKEND_ENDPOINT
+            const response = await fetch(`${backendIp}/team/${teamName}/matches?year=${year}`, {
               method: 'GET',
               headers: {
                   'Content-Type': 'application/json'
@@ -33,12 +36,19 @@ export const MatchPage = () => {
     }
     return (
       <div className="MatchPage">
-          <h1>Matches Page</h1>
-          <h2>{teamName}</h2>
-          <MatchDetailCard />
-          {
-              matches.map(match => <MatchDetailCard teamName= {teamName} match={match}/>)
-          }
+          <div className='year-selector'>
+            <h3>Select Year</h3>
+            <YearSelector teamName={teamName}/>
+          </div>
+          
+          <div class-name='match-details-section'>
+            <h1 className='page-heading'>{teamName} matches in {year}</h1>
+            <MatchDetailCard />
+            {
+                matches.map(match => <MatchDetailCard teamName= {teamName} match={match}/>)
+            }
+          </div>
+         
           
       </div>
     );
