@@ -16,7 +16,6 @@ export const HomePage = () => {
                 'Content-Type': 'application/json'            }
         })
         const data = await response.json();
-        console.log(data)
         setTeam(data);
         
         };
@@ -31,7 +30,7 @@ export const HomePage = () => {
         
         <div className='team-grid'>
             {team.map(team => 
-                <TeamTile teamName={team.teamName} />
+                <TeamTile key={team.id} teamName={team.teamName} />
             )}
         </div>
       </div>

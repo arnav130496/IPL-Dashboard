@@ -22,7 +22,6 @@ export const TeamPage = () => {
           }
       })
       const data = await response.json();
-      console.log(data)
       setTeam(data);
       
       };
@@ -31,7 +30,6 @@ export const TeamPage = () => {
   );
 
   if(!team || !team.teamName){
-    console.log(team)
     return <h1>Team Not Found</h1>
   }
   return (
@@ -53,7 +51,7 @@ export const TeamPage = () => {
         <h3 className='latest-match-detail'>Latest Match Details</h3>
         <MatchDetailCard teamName= {team.teamName} match={team.matches[0]}/>
       </div>
-      {team.matches.slice(1).map(match => <MatchSmallCard teamName= {team.teamName} match={match}/>)}
+      {team.matches.slice(1).map(match => <MatchSmallCard key={match.id} teamName= {team.teamName} match={match}/>)}
       <div className="more-link">
         <Link to={`/teams/${teamName}/matches/${process.env.REACT_APP_DATA_END_YEAR}`}>More ></Link>
       </div>

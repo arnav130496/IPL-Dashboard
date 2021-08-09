@@ -20,7 +20,6 @@ export const MatchPage = () => {
           }
           )
           const data = await response.json();
-          console.log(data)
           setMatches(data);
           
           };
@@ -29,9 +28,6 @@ export const MatchPage = () => {
       );
 
     if(!matches || !year){
-        console.log(matches, year)
-        console.log(teamName)
-        console.log(year)
         return <h1>Invalid Match Data</h1>
     }
     return (
@@ -41,11 +37,11 @@ export const MatchPage = () => {
             <YearSelector teamName={teamName}/>
           </div>
           
-          <div class-name='match-details-section'>
+          <div className='match-details-section'>
             <h1 className='page-heading'>{teamName} matches in {year}</h1>
             <MatchDetailCard />
             {
-                matches.map(match => <MatchDetailCard teamName= {teamName} match={match}/>)
+                matches.map(match => <MatchDetailCard key={match.id} teamName= {teamName} match={match}/>)
             }
           </div>
          
